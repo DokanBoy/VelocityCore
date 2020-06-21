@@ -4,6 +4,8 @@ import com.google.common.collect.ImmutableList;
 import net.kyori.text.TextComponent;
 import su.mcstudio.velocitycore.message.Message;
 
+import java.util.List;
+
 
 /**
  * @author Alexey Zakharov
@@ -18,8 +20,8 @@ public class MultiMessage implements Message {
         this(ImmutableList.copyOf(message));
     }
     
-    public MultiMessage(ImmutableList<String> message) {
-        this.message = message;
+    public MultiMessage(List<String> message) {
+        this.message = ImmutableList.copyOf(message);
         this.textComponent = TextComponent.empty();
         
         // TODO: Пересмотреть логику, в сообщение всегда будет последяя пустая строка
