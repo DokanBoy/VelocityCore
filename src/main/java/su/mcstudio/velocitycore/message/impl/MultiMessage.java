@@ -16,10 +16,6 @@ public class MultiMessage implements Message {
     private final ImmutableList<String> message;
     private final TextComponent textComponent;
     
-    public MultiMessage(String... message) {
-        this(ImmutableList.copyOf(message));
-    }
-    
     public MultiMessage(List<String> message) {
         this.message = ImmutableList.copyOf(message);
         this.textComponent = TextComponent.empty();
@@ -38,4 +34,12 @@ public class MultiMessage implements Message {
     public ImmutableList<String> getRawMessage() {
         return message;
     }
+    
+    @Override
+    public String toString() {
+        return "MultiMessage{" + "message=[" + message.toString() +
+            "], textComponent=[" + textComponent.toString() +
+            "]}";
+    }
+    
 }

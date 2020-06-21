@@ -2,6 +2,7 @@ package su.mcstudio.velocitycore.message;
 
 
 import com.google.common.collect.ImmutableList;
+import com.velocitypowered.api.command.CommandSource;
 import net.kyori.text.TextComponent;
 import su.mcstudio.velocitycore.message.impl.MultiMessage;
 import su.mcstudio.velocitycore.message.impl.SingleMessage;
@@ -20,5 +21,9 @@ public interface Message {
     
     default MultiMessage of(ImmutableList<String> message) {
         return new MultiMessage(message);
+    }
+    
+    default void send(CommandSource source, Message message) {
+        source.sendMessage(message.getComponent());
     }
 }

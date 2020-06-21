@@ -25,4 +25,12 @@ public class SingleMessage implements Message {
     public String getRawMessage() {
         return message;
     }
+    
+    @Override
+    public String toString() {
+        return "SingleMessage{" + "message='" + message +
+            ", textComponent=" + textComponent +
+            '}';
+    }
+    
 }
