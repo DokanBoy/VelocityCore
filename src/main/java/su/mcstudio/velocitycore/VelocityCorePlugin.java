@@ -21,8 +21,8 @@ import java.nio.file.Path;
  */
 @Plugin(id = "core",
     name = "Core",
-    version = "1.0.0",
-    description = "Plugin contains more commands for manage Velocity proxy server",
+    version = "${project.version}",
+    description = "${project.description}",
     url = "mcstudio.su",
     authors = {"DokanBoy"}
 )

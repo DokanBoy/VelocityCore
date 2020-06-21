@@ -6,8 +6,20 @@
 
     <groupId>su.mcstudio</groupId>
     <artifactId>VelocityCorePlugin</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0.0</version>
+    <description>Plugin contains more commands for manage Velocity proxy server</description>
 
+    <developers>
+        <developer>
+            <name>Alexey Zakharov</name>
+            <email>alexey@zakharov.pw</email>
+            <organizationUrl>mcstudio.su</organizationUrl>
+            <roles>
+                <role>Maintainer</role>
+            </roles>
+        </developer>
+
+    </developers>
     <repositories>
         <repository>
             <id>velocity</id>
@@ -39,7 +51,7 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Sponge Configurate API -->
+        <!-- Configuration -->
         <dependency>
             <groupId>org.spongepowered</groupId>
             <artifactId>configurate-core</artifactId>
@@ -51,7 +63,7 @@
             <version>3.6.1</version>
         </dependency>
 
-        <!-- Command Dispatcher Framework -->
+        <!-- Command Dispatcher -->
         <dependency>
             <groupId>co.aikar</groupId>
             <artifactId>acf-core</artifactId>
