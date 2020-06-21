@@ -14,7 +14,7 @@ import java.util.List;
 public class MultiMessage implements Message {
     
     private final ImmutableList<String> message;
-    private final TextComponent textComponent;
+    private final transient TextComponent textComponent;
     
     public MultiMessage(List<String> message) {
         this.message = ImmutableList.copyOf(message);

@@ -10,7 +10,7 @@ import su.mcstudio.velocitycore.message.Message;
 public class SingleMessage implements Message {
     
     private final String message;
-    private final TextComponent textComponent;
+    private final transient TextComponent textComponent;
     
     public SingleMessage(String message) {
         this.message = message;

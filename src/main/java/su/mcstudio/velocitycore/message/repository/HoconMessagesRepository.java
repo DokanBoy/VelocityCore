@@ -1,8 +1,10 @@
 package su.mcstudio.velocitycore.message.repository;
 
 import com.google.common.collect.Maps;
+import com.google.common.reflect.TypeToken;
 import ninja.leaping.configurate.ConfigurationNode;
 import ninja.leaping.configurate.hocon.HoconConfigurationLoader;
+import ninja.leaping.configurate.objectmapping.ObjectMappingException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import su.mcstudio.velocitycore.message.Message;
@@ -28,7 +30,11 @@ public class HoconMessagesRepository implements MessagesRepository {
     
     @Override
     public void load(@NotNull ConfigurationNode messagesNode) {
-        // TODO
+        try {
+            keyMessageMap.putAll(messagesNode.getValue(TypeToken.of(Map.class)));
+        } catch (ObjectMappingException e) {
+            e.printStackTrace();
+        }
     }
     
     @Override
@@ -36,16 +42,4 @@ public class HoconMessagesRepository implements MessagesRepository {
         return keyMessageMap.get(key);
     }
     
-/*    private Map<String, Message> loadMessages(ConfigurationNode messagesNode) {
-        Map<String, Message> messages = Maps.newHashMap();
-    
-        messagesNode.getChildrenMap().forEach(new BiConsumer<Object, ConfigurationNode>() {
-            @Override
-            public void accept(Object o, ConfigurationNode configurationNode) {
-                messages.put((String) o, configurationNode.getString());
-            }
-        });
-        
-        return messages;
-    }*/
 }
