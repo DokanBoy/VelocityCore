@@ -3,6 +3,8 @@ package su.mcstudio.velocitycore.command.impl;
 import co.aikar.commands.BaseCommand;
 import co.aikar.commands.annotation.*;
 import com.velocitypowered.api.proxy.Player;
+import su.mcstudio.velocitycore.message.Message;
+import su.mcstudio.velocitycore.message.Messages;
 
 /**
  * @author Alexey Zakharov
@@ -21,6 +23,6 @@ public class CoreCommand extends BaseCommand {
     @Subcommand("help")
     @Description("Получить информацию о плагине")
     public void onInfo(Player player) {
-        for (String s : )
+        player.sendMessage(Messages.CORE_INFO.getColorizedMessage());
     }
 }

@@ -8,6 +8,7 @@ import su.mcstudio.velocitycore.VelocityCorePlugin;
  * @date 21.06.2020
  */
 public enum Messages {
+    
     CORE_INFO("core_info"),
     ;
     

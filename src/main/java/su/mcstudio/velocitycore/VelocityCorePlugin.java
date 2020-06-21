@@ -19,11 +19,11 @@ import java.nio.file.Path;
  * @author Alexey Zakharov
  * @date 20.06.2020
  */
-
 @Plugin(id = "core",
-    name = "My First Plugin",
-    version = "1.0-SNAPSHOT",
-    description = "I did it!",
+    name = "Core",
+    version = "1.0.0",
+    description = "Plugin contains more commands for manage Velocity proxy server",
+    url = "mcstudio.su",
     authors = {"DokanBoy"}
 )
 public class VelocityCorePlugin {
@@ -47,11 +47,9 @@ public class VelocityCorePlugin {
                 .setPath(path.resolve("messages.conf"))
                 .build());
         } catch (IOException e) {
-            logger.error("Сообщения не подгрузились. Плагин выключен", e);
+            logger.error("Messages could not be downloaded. Disabling plugin", e);
+            // TODO: Some logic for disabling
         }
-    
-        logger.info("Hello there, it's a test plugin I made!");
-        logger.info("Now plugin init!");
     }
     
     public static VelocityCorePlugin getInstance() {
@@ -64,11 +62,7 @@ public class VelocityCorePlugin {
     
     @Subscribe
     public void onProxyInitialization(ProxyInitializeEvent event) {
-        //server.getEventManager().register(this, new PluginListener());
-        //server.getCommandManager().register("message", new MessageCommand(server), "msg");
-        proxyServer.getEventManager().register(this, new PlayerJoinListener(proxyServer, logger));
-        
-        logger.info("Now plugin enabled");
+        proxyServer.getEventManager().register(this, new PlayerJoinListener(proxyServer));
     }
     
 }

@@ -20,19 +20,17 @@ import java.util.concurrent.TimeUnit;
  */
 public class PlayerJoinListener {
     
-    private final ProxyServer server;
-    private final Logger logger;
-    
-    public PlayerJoinListener(ProxyServer server, Logger logger) {
-        this.server = server;
-        this.logger = logger;
+    private final ProxyServer proxyServer;
+    public PlayerJoinListener(ProxyServer proxyServer) {
+        this.proxyServer = proxyServer;
     }
     
+    // TODO
     @Subscribe
     public void onPlayerJoin(PostLoginEvent event) {
         Player player = event.getPlayer();
-        
-        server.getScheduler().buildTask(VelocityCorePlugin.getInstance(), () -> {
+    
+        proxyServer.getScheduler().buildTask(VelocityCorePlugin.getInstance(), () -> {
             player.sendMessage(TextComponent.of("Hello!"));
             player.sendTitle(TextTitle
                 .builder()
