@@ -6,14 +6,9 @@ import ninja.leaping.configurate.hocon.HoconConfigurationLoader;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import su.mcstudio.velocitycore.message.Message;
-import su.mcstudio.velocitycore.message.impl.MultiMessage;
-import su.mcstudio.velocitycore.message.impl.SingleMessage;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.function.BiConsumer;
 
 /**
  * @author Alexey Zakharov
@@ -27,18 +22,13 @@ public class HoconMessagesRepository implements MessagesRepository {
     public HoconMessagesRepository(HoconConfigurationLoader loader) throws IOException {
         this.keyMessageMap = Maps.newHashMap();
         this.messagesNode = loader.load();
-    
-        keyMessageMap.putAll(loadMessages(messagesNode));
+        
+        load(messagesNode);
     }
     
     @Override
-    public void addSingleMessage(@NotNull String key, @NotNull SingleMessage message) {
-        keyMessageMap.put(key, message);
-    }
-    
-    @Override
-    public void addMultiMessage(@NotNull String key, @NotNull MultiMessage message) {
-        keyMessageMap.put(key, message);
+    public void load(@NotNull ConfigurationNode messagesNode) {
+        // TODO
     }
     
     @Override
@@ -46,16 +36,16 @@ public class HoconMessagesRepository implements MessagesRepository {
         return keyMessageMap.get(key);
     }
     
-    private Map<String, Message> loadMessages(ConfigurationNode messagesNode) {
+/*    private Map<String, Message> loadMessages(ConfigurationNode messagesNode) {
         Map<String, Message> messages = Maps.newHashMap();
     
         messagesNode.getChildrenMap().forEach(new BiConsumer<Object, ConfigurationNode>() {
             @Override
             public void accept(Object o, ConfigurationNode configurationNode) {
-                //messages.put((String) o, configurationNode.getString());
+                messages.put((String) o, configurationNode.getString());
             }
         });
         
         return messages;
-    }
+    }*/
 }

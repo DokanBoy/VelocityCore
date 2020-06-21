@@ -1,5 +1,6 @@
 package su.mcstudio.velocitycore.message.repository;
 
+import ninja.leaping.configurate.ConfigurationNode;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import su.mcstudio.velocitycore.message.Message;
@@ -12,9 +13,7 @@ import su.mcstudio.velocitycore.message.impl.SingleMessage;
  */
 public interface MessagesRepository {
     
-    void addSingleMessage(@NotNull String key, @NotNull SingleMessage message);
-    
-    void addMultiMessage(@NotNull String key, @NotNull MultiMessage message);
+    void load(@NotNull ConfigurationNode messagesNode);
     
     @Nullable
     Message getMessage(@NotNull String key);
