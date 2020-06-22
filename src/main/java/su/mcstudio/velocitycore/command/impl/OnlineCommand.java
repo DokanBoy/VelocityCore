@@ -5,9 +5,8 @@ import co.aikar.commands.annotation.*;
 
 /**
  * @author Alexey Zakharov
- * @date 21.06.2020
+ * @since 21.06.2020
  */
-
 @CommandAlias("core")
 @CommandPermission("core.online")
 @Description("Узнать онлайн на сервере")
@@ -22,4 +21,5 @@ public class OnlineCommand extends BaseCommand {
     public void onOnlineCommand() {
     
     }
+    
 }

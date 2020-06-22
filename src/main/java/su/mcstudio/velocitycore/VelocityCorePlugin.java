@@ -17,9 +17,10 @@ import java.nio.file.Path;
 
 /**
  * @author Alexey Zakharov
- * @date 20.06.2020
+ * @since 20.06.2020
  */
-@Plugin(id = "core",
+@Plugin(
+    id = "core",
     name = "Core",
     version = "${project.version}",
     description = "${project.description}",
@@ -42,6 +43,7 @@ public class VelocityCorePlugin {
         this.path = path;
         
         instance = this;
+        
         try {
             messagesRepository = new HoconMessagesRepository(HoconConfigurationLoader.builder()
                 .setPath(path.resolve("messages.conf"))

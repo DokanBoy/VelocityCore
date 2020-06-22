@@ -14,7 +14,7 @@ import java.util.Map;
 
 /**
  * @author Alexey Zakharov
- * @date 21.06.2020
+ * @since 21.06.2020
  */
 public class HoconMessagesRepository implements MessagesRepository {
     

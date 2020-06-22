@@ -1,11 +1,12 @@
 package su.mcstudio.velocitycore.message;
 
 import net.kyori.text.TextComponent;
+import org.jetbrains.annotations.NotNull;
 import su.mcstudio.velocitycore.VelocityCorePlugin;
 
 /**
  * @author Alexey Zakharov
- * @date 21.06.2020
+ * @since 21.06.2020
  */
 public enum Messages {
     
@@ -14,7 +15,7 @@ public enum Messages {
     
     private final String key;
     
-    Messages(String key) {
+    Messages(@NotNull String key) {
         this.key = key;
     }
     

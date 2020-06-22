@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * @author Alexey Zakharov
- * @date 20.06.2020
+ * @since  20.06.2020
  */
 public class PlayerJoinListener {
     
